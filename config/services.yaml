@@ -17,8 +17,15 @@ services:
         resource: '../src/'
         exclude:
             - '../src/DependencyInjection/'
-            - '../src/Entity/'
+            - '../src/Model/'
             - '../src/Kernel.php'
+
+    App\Registry\CalculatorRegistry:
+        calls:
+            - register: [ '+', '@App\Service\AdditionCalculator' ]
+            - register: [ '-', '@App\Service\SubtractionCalculator' ]
+            - register: [ '/', '@App\Service\DivisionCalculator' ]
+            - register: [ '*', '@App\Service\MultiplicationCalculator' ]
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
