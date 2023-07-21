@@ -18,14 +18,6 @@ final class DivisionCalculatorTest extends TestCase
         $this->divisionCalculator = new DivisionCalculator();
     }
 
-    public static function provideCalculatorValues(): \Generator
-    {
-        yield [10, 10, 1];
-        yield [0, 1, 0];
-        yield [-4, -7, 0.5714285714285714];
-        yield [-2.5, -7.5, 0.3333333333333333];
-    }
-
     #[DataProvider('provideCalculatorValues')]
     public function testCalculatesPackGroup(float $actualResult1, float $actualResult2, float $expectedResult): void
     {
@@ -39,5 +31,13 @@ final class DivisionCalculatorTest extends TestCase
     {
         $this->expectException(\Exception::class);
         $this->divisionCalculator->calculate(new Number(1), new Number(0));
+    }
+
+    public static function provideCalculatorValues(): \Generator
+    {
+        yield [10, 10, 1];
+        yield [0, 1, 0];
+        yield [-4, -7, 0.5714285714285714];
+        yield [-2.5, -7.5, 0.3333333333333333];
     }
 }

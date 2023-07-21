@@ -12,10 +12,10 @@ use Webmozart\Assert\InvalidArgumentException;
 final class NumberTest extends TestCase
 {
     #[DataProvider('provideValues')]
-    public function testCreatesNumber(): void
+    public function testCreatesNumber(string $value): void
     {
         $this->expectNotToPerformAssertions();
-        Number::createFromString('10');
+        Number::createFromString($value);
     }
 
     #[DataProvider('provideInvalidValues')]

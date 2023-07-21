@@ -10,13 +10,13 @@ use Jrm\RequestBundle\Attribute\Body;
 
 final class CalculatorRequest
 {
- public function __construct(
-     #[Body('argument_1')]
-     private readonly string $argument1,
-     #[Body('operation')]
-     private readonly string $operation,
-     #[Body('argument_2')]
-     private readonly string $argument2,
+    public function __construct(
+        #[Body('argument_1')]
+        private readonly string $argument1,
+         #[Body('operation')]
+        private readonly string $operation,
+        #[Body('argument_2')]
+        private readonly string $argument2,
     ) {
     }
 

@@ -18,14 +18,6 @@ final class SubtractionCalculatorTest extends TestCase
         $this->subtractionCalculator = new SubtractionCalculator();
     }
 
-    public static function provideCalculatorValues(): \Generator
-    {
-        yield [10, 10, 0];
-        yield [0, 1, -1];
-        yield [-4, -7, 3];
-        yield [-2.5, -7.5, 5];
-    }
-
     #[DataProvider('provideCalculatorValues')]
     public function testCalculatesPackGroup(float $actualResult1, float $actualResult2, float $expectedResult): void
     {
@@ -33,5 +25,13 @@ final class SubtractionCalculatorTest extends TestCase
         $number2 = new Number($actualResult2);
         $result = $this->subtractionCalculator->calculate($number1, $number2);
         self::assertSame($expectedResult, $result);
+    }
+
+    public static function provideCalculatorValues(): \Generator
+    {
+        yield [10, 10, 0];
+        yield [0, 1, -1];
+        yield [-4, -7, 3];
+        yield [-2.5, -7.5, 5];
     }
 }
